@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 const LoginForm = () => {
     const [username , setUsername] =useState('');
     const [password, setPassword] =useState('');
+    const [error, setError] = useState('');
     const handleSubmit= async (e)=>{
         e.preventDefault();
         const authObject ={'Project-ID': "a97ec236-9c04-42a3-8d56-0695f9c2e1b3", 'User-Name':username , 'User-Secret':password}
@@ -17,6 +18,7 @@ const LoginForm = () => {
 
         } catch (error) {
             // error=> try with new username
+            setError('Oops, Incorrect Credentials!')
         }
     }
     return (
